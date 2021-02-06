@@ -13,7 +13,6 @@
         <SolidColorBrush Opacity="0" Color="White" />
     </Window.Background>
     <Grid Margin="0" >
-        <Image Source="ubbxjy0oude61.jpg" Stretch="Fill" Opacity="0" d:IsHidden="True"/>
         <Grid HorizontalAlignment="Right" Height="532" Margin="0,38,0,0" VerticalAlignment="Top" Width="316.416">
             <Grid HorizontalAlignment="Left" Height="60" Margin="0" VerticalAlignment="Top" Width="316">
                 <Grid.Background>
@@ -22,7 +21,7 @@
                         <GradientStop Color="#FFF44C31" Offset="1"/>
                     </LinearGradientBrush>
                 </Grid.Background>
-                <Label Content="now playing" HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Width="215.167" Foreground="White" FontFamily="Segoe UI Light" FontSize="40" Padding="10,0,5,5" UseLayoutRounding="True"/>
+                <Label x:Name="PlaybackStatus" Content="now playing" HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Width="215.167" Foreground="White" FontFamily="Segoe UI Light" FontSize="40" Padding="10,0,5,5" UseLayoutRounding="True"/>
                 <Button HorizontalAlignment="Left" Height="32" Margin="247.5,16,0,0" VerticalAlignment="Top" Width="32" Template="{DynamicResource RoundButton}" Background="{x:Null}" BorderBrush="White" BorderThickness="1" UseLayoutRounding="False"/>
                 <Button HorizontalAlignment="Left" Height="20" Margin="227.5,23,0,0" VerticalAlignment="Top" Width="20" Template="{DynamicResource RoundButton}" Background="{x:Null}" BorderBrush="White" BorderThickness="1" UseLayoutRounding="False"/>
                 <Button HorizontalAlignment="Left" Height="20" Margin="279.5,23,0,0" VerticalAlignment="Top" Width="20" Template="{DynamicResource RoundButton}" Background="{x:Null}" BorderBrush="White" BorderThickness="1" UseLayoutRounding="False"/>
@@ -44,5 +43,6 @@
             </Rectangle>
             <Label x:Name="SongName" Content="Reptile" HorizontalAlignment="Left" Margin="0,396.96,0,0" VerticalAlignment="Top" Foreground="White" FontSize="28" FontFamily="Segoe UI Light" Width="316" Padding="0"/>
         </Grid>
+        <TextBlock x:Name="LOG" HorizontalAlignment="Left" Height="536" Margin="336,98,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="680" Foreground="White"/>
     </Grid>
 </Window>
