@@ -21,14 +21,14 @@
                         <GradientStop Color="#FFF44C31" Offset="1"/>
                     </LinearGradientBrush>
                 </Grid.Background>
-                <Label x:Name="PlaybackStatus" Content="now playing" HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Width="215.167" Foreground="White" FontFamily="Segoe UI Light" FontSize="40" Padding="10,0,5,5" UseLayoutRounding="True"/>
+                <Label x:Name="PlaybackStatus" Content="not playing" HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Width="215.167" Foreground="White" FontFamily="Segoe UI Light" FontSize="40" Padding="10,0,5,5" UseLayoutRounding="True"/>
                 <Button HorizontalAlignment="Left" Height="32" Margin="247.5,16,0,0" VerticalAlignment="Top" Width="32" Template="{DynamicResource RoundButton}" Background="{x:Null}" BorderBrush="White" BorderThickness="1" UseLayoutRounding="False"/>
                 <Button HorizontalAlignment="Left" Height="20" Margin="227.5,23,0,0" VerticalAlignment="Top" Width="20" Template="{DynamicResource RoundButton}" Background="{x:Null}" BorderBrush="White" BorderThickness="1" UseLayoutRounding="False"/>
                 <Button HorizontalAlignment="Left" Height="20" Margin="279.5,23,0,0" VerticalAlignment="Top" Width="20" Template="{DynamicResource RoundButton}" Background="{x:Null}" BorderBrush="White" BorderThickness="1" UseLayoutRounding="False"/>
             </Grid>
-            <Image x:Name="AlbumArt" Margin="0,154,0,0" Source="Folder.jpg" Stretch="Fill" Width="220" Height="220" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <Label x:Name="ArtistName" Content="THORNHILL" HorizontalAlignment="Left" Margin="0,60,0,0"  VerticalAlignment="Top" Foreground="White" FontSize="40" FontFamily="Segoe UI Semibold" Width="316.416" Height="60" Padding="0"/>
-            <Label x:Name="AlbumName" Content="BUTTERFLY" HorizontalAlignment="Left" Margin="0,94,0,0" VerticalAlignment="Top" Foreground="White" FontSize="40" FontFamily="Segoe UI Light" Width="316" Height="60" Padding="0"/>
+            <Image x:Name="AlbumArt" Margin="0,154,0,0" Stretch="Fill" Width="220" Height="220" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <Label x:Name="ArtistName" Content="WELCOME" HorizontalAlignment="Left" Margin="0,60,0,0"  VerticalAlignment="Top" Foreground="White" FontSize="40" FontFamily="Segoe UI Semibold" Width="316.416" Height="60" Padding="0"/>
+            <Label x:Name="AlbumName" Content="TO THE SOCIAL" HorizontalAlignment="Left" Margin="0,94,0,0" VerticalAlignment="Top" Foreground="White" FontSize="40" FontFamily="Segoe UI Light" Width="316" Height="60" Padding="0"/>
             <Rectangle HorizontalAlignment="Left" Height="1" Margin="0,380,0,0" VerticalAlignment="Top" Width="220" MaxWidth="220">
                 <Rectangle.Fill>
                     <SolidColorBrush Color="White" Opacity="0.3"/>
@@ -41,7 +41,7 @@
                     <SolidColorBrush Color="White"/>
                 </Rectangle.Fill>
             </Rectangle>
-            <Label x:Name="SongName" Content="Reptile" HorizontalAlignment="Left" Margin="0,396.96,0,0" VerticalAlignment="Top" Foreground="White" FontSize="28" FontFamily="Segoe UI Light" Width="316" Padding="0"/>
+            <Label x:Name="SongName" Content="Hello from Germany" HorizontalAlignment="Left" Margin="0,396.96,0,0" VerticalAlignment="Top" Foreground="White" FontSize="28" FontFamily="Segoe UI Light" Width="316" Padding="0"/>
         </Grid>
         <TextBlock x:Name="LOG" HorizontalAlignment="Left" Height="536" Margin="336,98,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="680" Foreground="White"/>
     </Grid>
