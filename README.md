@@ -6,6 +6,9 @@ NOTE: ZuneDesk is not affiliated with or endorsed by microsoft.
 ## What is ZuneDesk?
 ZuneDesk is a desktop overlay for playing music. It's inspired by the Zune UI. 
 
+## Download
+Check the [Releases](https://github.com/PlatinShadow/ZuneDesk/releases) for the newest download.
+
 ## Features
 This is still in very early development, so there aren't many features.
 But the overlay is already somewhat integrated with Windows APIs for getting information about the currently playing media. 
