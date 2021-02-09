@@ -13,9 +13,12 @@ But the overlay is already somewhat integrated with Windows APIs for getting inf
 ## Plans
 - [x] System Media Transport Controls integration
 - [ ] Audio Visualizer
+- [ ] Audio File Playback?
 - [ ] Spotify integration
-- [ ] Customizations
-- [ ] More of the Zune HD Ui
+- [ ] Zune Syncing?
+
+## Helping
+If you find any bugs or would like to request a feature please open a new [issue](https://github.com/PlatinShadow/ZuneDesk/issues).
 
 ## Acknowledgements
 - Thanks to [this reddit post](https://www.reddit.com/r/Zune/comments/l8bu6r/windows_10_zune_start_menu_concept/) for inspiring me to do this!

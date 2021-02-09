@@ -37,21 +37,28 @@ namespace ZuneDesk
         void SetupSession()
         {
             sessionManager = GlobalSystemMediaTransportControlsSessionManager.RequestAsync().GetAwaiter().GetResult();
-
-            session = sessionManager.GetCurrentSession();
-            session.MediaPropertiesChanged       += Session_MediaPropertiesChanged;
-            session.PlaybackInfoChanged          += Session_PlaybackInfoChanged;
-            session.TimelinePropertiesChanged    += Session_TimelinePropertiesChanged;
-
             sessionManager.CurrentSessionChanged += SessionManager_CurrentSessionChanged;
+            session = sessionManager.GetCurrentSession();
+
+            if(session != null)
+            {
+                //UH OH, there is no session
+                session.MediaPropertiesChanged       += Session_MediaPropertiesChanged;
+                session.PlaybackInfoChanged          += Session_PlaybackInfoChanged;
+                session.TimelinePropertiesChanged    += Session_TimelinePropertiesChanged;
+            }
         }
 
         private void SessionManager_CurrentSessionChanged(GlobalSystemMediaTransportControlsSessionManager sender, CurrentSessionChangedEventArgs args)
         {
             session = sender.GetCurrentSession();
-            session.MediaPropertiesChanged      += Session_MediaPropertiesChanged;
-            session.PlaybackInfoChanged         += Session_PlaybackInfoChanged;
-            session.TimelinePropertiesChanged   += Session_TimelinePropertiesChanged;
+            //No Session :/
+            if (session != null)
+            {
+                session.MediaPropertiesChanged += Session_MediaPropertiesChanged;
+                session.PlaybackInfoChanged += Session_PlaybackInfoChanged;
+                session.TimelinePropertiesChanged += Session_TimelinePropertiesChanged;
+            }
         }
 
         private void Session_TimelinePropertiesChanged(GlobalSystemMediaTransportControlsSession sender, TimelinePropertiesChangedEventArgs args)
@@ -116,6 +123,21 @@ namespace ZuneDesk
 
                 AlbumArt.Source = bitmap;
             });
+        }
+
+        private void PlayPause_Click(object sender, RoutedEventArgs e)
+        {
+            session.TryTogglePlayPauseAsync().GetAwaiter();
+        }
+
+        private void Skip_Click(object sender, RoutedEventArgs e)
+        {
+            session.TrySkipNextAsync().GetAwaiter();
+        }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            session.TrySkipPreviousAsync().GetAwaiter();
         }
     }
 }
