@@ -6,14 +6,14 @@
         xmlns:MediaControls="clr-namespace:ZuneDesk.Controls.MediaControls" x:Class="ZuneDesk.MainWindow"
         mc:Ignorable="d"
         AllowsTransparency="True" WindowStyle="None"
-        Height="{DynamicResource {x:Static SystemParameters.PrimaryScreenHeightKey}}"
-        Width="{DynamicResource {x:Static SystemParameters.PrimaryScreenWidthKey}}"
+        Height="1080"
+        Width="1920"
         Left="0" Top="0"
         Title="ZuneDesk">
     <Window.Background>
         <SolidColorBrush Opacity="0" Color="White" />
     </Window.Background>
-    <Grid Margin="0" >
+    <Grid Margin="0" UseLayoutRounding="True" >
         <MediaControls:MediaControls HorizontalAlignment="Right" Height="524" Margin="0,38,0,0" VerticalAlignment="Top" Width="312"/>
     </Grid>
 </Window>

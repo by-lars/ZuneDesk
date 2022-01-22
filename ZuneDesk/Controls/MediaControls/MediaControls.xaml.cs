@@ -47,8 +47,12 @@ namespace ZuneDesk.Controls.MediaControls {
         private void TimelineTimer_Tick(Object sender, ElapsedEventArgs e) {
             this.Dispatcher.Invoke(() => {
                 m_TimeCurrentPos = m_TimeCurrentPos.Add(TimeSpan.FromSeconds(1));
-                Position.Content = String.Format("{0:D2}:{1:D2}", m_TimeCurrentPos.Minutes, m_TimeCurrentPos.Seconds);
-                ProgressBar.Width = (m_TimeCurrentPos.TotalSeconds / m_TimeLength.TotalSeconds) * ProgressBar.MaxWidth;
+                Position.Text = String.Format("{0:D2}:{1:D2}", m_TimeCurrentPos.Minutes, m_TimeCurrentPos.Seconds);
+                double barWidth = (m_TimeCurrentPos.TotalSeconds / m_TimeLength.TotalSeconds) * ProgressBar.MaxWidth;
+
+                if(Double.IsInfinity(barWidth) != true) {
+                    ProgressBar.Width = barWidth;
+                }
             });
         }
 
@@ -67,7 +71,7 @@ namespace ZuneDesk.Controls.MediaControls {
                 m_Session.TimelinePropertiesChanged += TimelinePropertiesChanged;
             } else {
                 this.Dispatcher.Invoke(() => {
-                    Status.Content = "not playing";
+                    Status.Text = "not playing";
                 });
             }
         }
@@ -78,8 +82,8 @@ namespace ZuneDesk.Controls.MediaControls {
                 m_TimeCurrentPos = timeline.Position;
                 m_TimeLength     = timeline.EndTime;
 
-                Position.Content = String.Format("{0:D2}:{1:D2}", m_TimeCurrentPos.Minutes, m_TimeCurrentPos.Seconds);
-                EndTime.Content = String.Format("{0:D2}:{1:D2}", m_TimeLength.Minutes, m_TimeLength.Seconds);
+                Position.Text = String.Format("{0:D2}:{1:D2}", m_TimeCurrentPos.Minutes, m_TimeCurrentPos.Seconds);
+                EndTime.Text = String.Format("{0:D2}:{1:D2}", m_TimeLength.Minutes, m_TimeLength.Seconds);
 
                 ProgressBar.Width = (m_TimeCurrentPos.TotalSeconds / m_TimeLength.TotalSeconds) * ProgressBar.MaxWidth;
             });
@@ -90,18 +94,21 @@ namespace ZuneDesk.Controls.MediaControls {
                 var info = sender.GetPlaybackInfo();         
                 switch (info.PlaybackStatus) {
                     case GlobalSystemMediaTransportControlsSessionPlaybackStatus.Playing:
-                        Status.Content = "now playing";
+                        Status.Text = "now playing";
+                        StartStop.Content = "\xF8AE";
                         if (!m_TimelineTimer.Enabled) {
                             m_TimelineTimer.Start();
                         }
                         break;
                     case GlobalSystemMediaTransportControlsSessionPlaybackStatus.Paused:
-                        Status.Content = "paused";
+                        Status.Text = "paused";
                         m_TimelineTimer.Stop();
+                        StartStop.Content = "\xF5B0";
                         break;
                     case GlobalSystemMediaTransportControlsSessionPlaybackStatus.Stopped:
-                        Status.Content = "not playing";
+                        Status.Text = "not playing";
                         m_TimelineTimer.Stop();
+                        StartStop.Content = "\xF5B0";
                         break;
                 }
             });
@@ -111,9 +118,9 @@ namespace ZuneDesk.Controls.MediaControls {
             this.Dispatcher.Invoke(async () => {
                 var media = await sender.TryGetMediaPropertiesAsync();
 
-                AlbumTitle.Content = media.AlbumTitle;
-                Title.Content = media.Title;
-                Artist.Content = media.Artist;
+                AlbumTitle.Text = media.AlbumTitle;
+                Title.Text = media.Title;
+                Artist.Text = media.Artist;
 
                 if (media.Thumbnail == null) {
                     return;

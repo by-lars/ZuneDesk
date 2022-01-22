@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:ZuneDesk.Controls.MediaControls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="312">
-    <Grid>
+    <Grid UseLayoutRounding="True">
         <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Height="60" Width="312">
             <Grid.Background>
                 <LinearGradientBrush EndPoint="1,0" StartPoint="0,0">
@@ -15,26 +15,14 @@
                 </LinearGradientBrush>
             </Grid.Background>
 
-            <Label x:Name="Status" Content="not playing" Foreground="White" FontFamily="Segoe UI Light" FontSize="40" Padding="10,0,5,5"></Label>
-            <Button x:Name="StartStop" HorizontalAlignment="Left" VerticalAlignment="Top" Height="32" Width="32" Margin="247.5,16,0,0" Template="{DynamicResource RoundButton}" BorderBrush="White" BorderThickness="1" Click="StartStop_Click">
-                <Button.Background>
-                    <ImageBrush ImageSource="/ZuneDesk;component/Assets/Image/pause-icon.png"></ImageBrush>
-                </Button.Background>
-            </Button>
-            <Button x:Name="Back" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Width="20" Margin="227.5,23,0,0" Template="{DynamicResource RoundButton}" BorderBrush="White" BorderThickness="1" Click="Back_Click">
-                <Button.Background>
-                    <ImageBrush ImageSource="/ZuneDesk;component/Assets/Image/back-icon.png"/>
-                </Button.Background>
-            </Button>
-            <Button x:Name="Skip" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Width="20" Margin="279.5,23,0,0" Template="{DynamicResource RoundButton}" BorderBrush="White" BorderThickness="1" Click="Skip_Click">
-                <Button.Background>
-                    <ImageBrush ImageSource="/ZuneDesk;component/Assets/Image/skip-icon.png"/>
-                </Button.Background>
-            </Button>
+            <TextBlock x:Name="Status" Text="not playing" Foreground="White" FontSize="40" Padding="10,0,0,0" Height="60" FontFamily="Segoe UI Light" VerticalAlignment="Top"/>
+            <Button x:Name="StartStop" FontFamily="Segoe MDL2 Assets" Content="&#xF5B0;" HorizontalAlignment="Left" VerticalAlignment="Top" Height="32" Width="32" Margin="247,17,0,0" Template="{DynamicResource RoundButton}" BorderBrush="White" Click="StartStop_Click" UseLayoutRounding="False" Background="{x:Null}" Foreground="White" FontSize="16"/>
+            <Button x:Name="Back" FontFamily="Segoe MDL2 Assets" Content="&#xF8AC;" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Width="20" Margin="227,23,0,0" Template="{DynamicResource RoundButton}" BorderBrush="White" Click="Back_Click" UseLayoutRounding="True" Background="{x:Null}" Foreground="White" FontSize="6"></Button>
+            <Button x:Name="Skip" FontFamily="Segoe MDL2 Assets" Content="&#xF8AD;" HorizontalAlignment="Left" VerticalAlignment="Top" Height="20" Width="20" Margin="279,23,0,0" Template="{DynamicResource RoundButton}" BorderBrush="White" Click="Skip_Click" UseLayoutRounding="False" Background="{x:Null}" Foreground="White" FontSize="6"></Button>
         </Grid>
 
-        <Label x:Name="Artist" Content="WELCOME" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,60,0,0" Foreground="White" FontFamily="Segoe UI Bold" FontSize="40" Padding="0"></Label>
-        <Label x:Name="AlbumTitle" Content="TO THE SOCIAL" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,94,0,0" Foreground="White" FontFamily="Segoe UI Light" FontSize="40" Padding="0"></Label>
+        <TextBlock x:Name="Artist" Text="WELCOME" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,60,0,0" Foreground="White" FontFamily="Segoe UI Bold" FontSize="40" Padding="0"></TextBlock>
+        <TextBlock x:Name="AlbumTitle" Text="TO THE SOCIAL" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,94,0,0" Foreground="White" FontFamily="Segoe UI Light" FontSize="40" Padding="0"></TextBlock>
 
         <Image x:Name="Thumbnail" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,154,0,0" Width="220" Height="220" Stretch="UniformToFill"></Image>
 
@@ -50,8 +38,8 @@
             </Rectangle.Fill>
         </Rectangle>
 
-        <Label x:Name="Position" Content="2:24" Margin="0,381,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" Foreground="White" FontFamily="Segoe UI Light"/>
-        <Label x:Name="EndTime" Content="3:32" Margin="0,381,92,0" HorizontalAlignment="Right" VerticalAlignment="Top" Padding="0" Foreground="White" HorizontalContentAlignment="Right" FontFamily="Segoe UI Light"/>
-        <Label x:Name="Title" Content="Hello from Germany" Margin="0,396.96,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" FontSize="28" FontFamily="Segoe UI Light" Padding="0"/>
+        <TextBlock x:Name="Position" Text="2:24" Margin="0,381,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0" Foreground="White" FontFamily="Segoe UI Light"/>
+        <TextBlock x:Name="EndTime" Text="3:32" Margin="0,381,92,0" HorizontalAlignment="Right" VerticalAlignment="Top" Padding="0" Foreground="White" FontFamily="Segoe UI Light"/>
+        <TextBlock x:Name="Title" Text="Hello from Germany" Margin="0,400,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" FontSize="28" FontFamily="Segoe UI Light" Padding="0"/>
     </Grid>
 </UserControl>

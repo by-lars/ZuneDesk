@@ -13,6 +13,9 @@ Check the [Releases](https://github.com/PlatinShadow/ZuneDesk/releases) for the 
 This is still in very early development, so there aren't many features.
 But the overlay is already somewhat integrated with Windows APIs for getting information about the currently playing media. 
 
+## Helping
+If you find any bugs or would like to request a feature please open a new [issue](https://github.com/PlatinShadow/ZuneDesk/issues).
+
 ## Plans
 - [x] System Media Transport Controls integration
 - [ ] Audio Visualizer
@@ -20,8 +23,6 @@ But the overlay is already somewhat integrated with Windows APIs for getting inf
 - [ ] Spotify integration
 - [ ] Zune Syncing?
 
-## Helping
-If you find any bugs or would like to request a feature please open a new [issue](https://github.com/PlatinShadow/ZuneDesk/issues).
 
 ## Acknowledgements
 - Thanks to [this reddit post](https://www.reddit.com/r/Zune/comments/l8bu6r/windows_10_zune_start_menu_concept/) for inspiring me to do this!
