@@ -118,9 +118,9 @@ namespace ZuneDesk.Controls.MediaControls {
             this.Dispatcher.Invoke(async () => {
                 var media = await sender.TryGetMediaPropertiesAsync();
 
-                AlbumTitle.Text = media.AlbumTitle;
+                AlbumTitle.Text = media.AlbumTitle.ToUpper();
                 Title.Text = media.Title;
-                Artist.Text = media.Artist;
+                Artist.Text = media.Artist.ToUpper();
 
                 if (media.Thumbnail == null) {
                     return;
