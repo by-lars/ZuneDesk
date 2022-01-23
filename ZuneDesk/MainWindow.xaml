@@ -3,17 +3,20 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:MediaControls="clr-namespace:ZuneDesk.Controls.MediaControls" x:Class="ZuneDesk.MainWindow"
+        xmlns:MediaControls="clr-namespace:ZuneDesk.Controls.MediaControls" xmlns:AudioVisualizer="clr-namespace:ZuneDesk.Controls.AudioVisualizer" x:Class="ZuneDesk.MainWindow"
         mc:Ignorable="d"
         AllowsTransparency="True" WindowStyle="None"
         Height="1080"
         Width="1920"
         Left="0" Top="0"
-        Title="ZuneDesk">
-    <Window.Background>
-        <SolidColorBrush Opacity="0" Color="White" />
-    </Window.Background>
+        Title="ZuneDesk"
+        Background="Transparent">
     <Grid Margin="0" UseLayoutRounding="True" >
+        <AudioVisualizer:SpectrumVisualizer>
+            <AudioVisualizer:SpectrumVisualizer.Effect>
+                <BlurEffect KernelType="Gaussian" Radius="60"></BlurEffect>
+            </AudioVisualizer:SpectrumVisualizer.Effect>
+        </AudioVisualizer:SpectrumVisualizer>
         <MediaControls:MediaControls HorizontalAlignment="Right" Height="524" Margin="0,38,0,0" VerticalAlignment="Top" Width="312"/>
     </Grid>
 </Window>

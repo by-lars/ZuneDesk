@@ -74,6 +74,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="WindowBlur.cs" />
     <Page Include="Controls\MediaControls\MediaControls.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -87,6 +88,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Controls\AudioVisualizer\SpectrumAnalyzer.cs" />
+    <Compile Include="Controls\AudioVisualizer\SpectrumVisualizer.cs" />
     <Compile Include="Controls\MediaControls\MediaControls.xaml.cs">
       <DependentUpon>MediaControls.xaml</DependentUpon>
     </Compile>
@@ -134,11 +136,17 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="D2dControl">
+      <Version>1.1.8</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.Windows.SDK.Contracts">
       <Version>10.0.19041.1</Version>
     </PackageReference>
     <PackageReference Include="NAudio">
-      <Version>2.0.0</Version>
+      <Version>2.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="NAudio.Extras">
+      <Version>1.0.0</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using Walterlv.Interop;
 
 namespace ZuneDesk
 {
@@ -10,6 +11,8 @@ namespace ZuneDesk
 
             this.Width = SystemParameters.WorkArea.Width;
             this.Height = SystemParameters.WorkArea.Height;
+
+            WindowBlur.SetIsEnabled(this, true);
         }
     }
 }
