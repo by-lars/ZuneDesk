@@ -27,7 +27,7 @@ namespace ZuneDesk.Controls.AudioVisualizer
             resCache.Add("RedBrush", t => new SolidColorBrush(t, new RawColor4(1.0f, 0.0f, 0.0f, 1.0f)));
             resCache.Add("GradientBrush", t => new LinearGradientBrush(
                 t,
-                new LinearGradientBrushProperties { StartPoint = new RawVector2 { X = 0, Y = 1080 }, EndPoint = new RawVector2 { X = 0, Y = 800 } },
+                new LinearGradientBrushProperties { StartPoint = new RawVector2 { X = 0, Y = (float)Height }, EndPoint = new RawVector2 { X = 0, Y = (float)(Height-(Height/4)) } },
                 new GradientStopCollection(t,
                 new[]
                 {
@@ -48,7 +48,7 @@ namespace ZuneDesk.Controls.AudioVisualizer
             SharpDX.DirectWrite.Factory fontFactory = new SharpDX.DirectWrite.Factory();
             debugForamt = new SharpDX.DirectWrite.TextFormat(fontFactory, "Segoe UI", 12);
 
-            Analyzer = new SpectrumAnalyzer(FFT_SIZE, FREQ_BANDS);
+            Analyzer = new SpectrumAnalyzer(FFT_SIZE, FREQ_BANDS, (int)Height);
             FreqBands = new float[FREQ_BANDS];
             LerpedFreqBands = new float[FREQ_BANDS];
             Analyzer.OnBandsCalculated += OnBandsCalculated;

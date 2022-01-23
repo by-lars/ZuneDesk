@@ -24,10 +24,10 @@ namespace ZuneDesk.Controls.AudioVisualizer
     {
         public event EventHandler<BandsEventArgs> OnBandsCalculated;
 
-        public SpectrumAnalyzer(int fftSize, int nBands)
+        public SpectrumAnalyzer(int fftSize, int nBands, int BandHeight)
         {
             CurrentIndex = 0;
-            
+            MaxBandHeight = BandHeight;
             //FFT is mirrored at half, so we need 2x the size
             FFTBuffer = new Complex[fftSize * 2];
             FreqBands = new float[nBands];
@@ -78,23 +78,6 @@ namespace ZuneDesk.Controls.AudioVisualizer
         private void CalculateBands()
         {
             FastFourierTransform.FFT(true, MValue, FFTBuffer);
-           // int offset = 0;
-            //for (int i = 0; i < FFTBuffer.Length/2; i++)
-            //{
-            //       int windowSize = (FFTBuffer.Length/2) / FreqBands.Length;
-
-            //        Complex c = FFTBuffer[offset];
-            //       // Debug.WriteLine(j * i);
-            //        double intensityDB = 15 * Math.Log10(Math.Sqrt(c.X * c.X + c.Y * c.Y));
-            //        double minDB = -90;
-            //        if (intensityDB < minDB) intensityDB = minDB;
-            //        double percent = intensityDB / minDB;
-
-            //        FreqBands[i/windowSize] += (float)percent * 1080;
-            //        offset += 1;
-
-            ////    offset += (i % windowSize == windowSize ? 1 : 0);
-            //}
 
             int offset = 0;
     
@@ -106,68 +89,19 @@ namespace ZuneDesk.Controls.AudioVisualizer
                 for(int j = 0; j < windowSize; j++)
                 {
                     float amplitude = GetAmplitude(FFTBuffer[offset]);
-                    FreqBands[i] += amplitude * 1080.0f;
+                    FreqBands[i] += amplitude * MaxBandHeight;
                     offset++;
                 }
 
                 FreqBands[i] /= windowSize;
-                if(FreqBands[i] > 1070.0f)
+                if(FreqBands[i] > MaxBandHeight - 10)
                 {
-                    FreqBands[i] = 1070.0f;
+                    FreqBands[i] = MaxBandHeight - 10;
                 }
-               // FreqBands[i] *= 1080.0f;
+     
             }
 
-           // Debug.WriteLine(offset);
-
-            //int windowSize = 4;
-            //for(int i = 0; i < FreqBands.Length; i++)
-            //{
-              
-            //    for(int j = 0; j < windowSize; j++)
-            //    {
-            //        FreqBands[i] += GetAmplitude(FFTBuffer[offset + j]);
-            //    }
-
-            //    FreqBands[i] /= windowSize;
-
-            //    if(i % windowSize == 0)
-            //    {
-            //        windowSize += 1;
-            //    }
-            //    offset += windowSize;
-
-            //}
-
-            //int index = 0;
-            //for(int i = 0; i < FFTBuffer.Length/2; i+=windowSize)
-            //{
-            //    for(int j = 0; j < windowSize; j++)
-            //    {
-            //        Complex c = FFTBuffer[i + j];
-
-            //        double intensityDB = 10 * Math.Log10(Math.Sqrt(c.X * c.X + c.Y * c.Y));
-            //        double minDB = -90;
-            //        if (intensityDB < minDB) intensityDB = minDB;
-            //        double percent = intensityDB / minDB;
-
-            //        FreqBands[index] += (float)percent * 1080;
-            //    }
-
-            //    FreqBands[index] /= windowSize;
-
-
-            //    index++;
-            //}
-
-            //double intensityDB = 20 * Math.Log10(Math.Sqrt(c.X * c.X + c.Y * c.Y));
-            //double minDB = -90;
-            //if (intensityDB < minDB) intensityDB = minDB;
-            //double percent = intensityDB / minDB;
-            //// we want 0dB to be at the top (i.e. yPos = 0)
-            //double yPos = percent * MaxBarHeight;
-            //return yPos;
-
+ 
             OnBandsCalculated(this, FreqBandsEventArgs);
         }
 
@@ -177,5 +111,6 @@ namespace ZuneDesk.Controls.AudioVisualizer
         private BandsEventArgs FreqBandsEventArgs;
         private Complex[] FFTBuffer;
         private float[] FreqBands;
+        private int MaxBandHeight;
     }
 }
